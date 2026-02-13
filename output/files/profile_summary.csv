@@ -1,0 +1,12 @@
+Profile Summary
+Generated on: 2026-02-13 06:54:26
+XRT build version: 0.0.0
+Build version branch: N/A
+Build version hash: N/A
+Build version date: N/A
+Target devices: N/A
+
+DPU Summary
+Kernel Name,Number Of Runs,CU Full Name,Minimum Time (ms),Average Time (ms),Maximum Time (ms),Workload(GOP),DPU Performance(GOP/s),Mem IO(MB),Mem Bandwidth(MB/s),
+vart::TensorBuffer::copy_tensor_buffer,5064,CPU,0.074,0.520,4.040,
+
