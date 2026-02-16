@@ -1,8 +1,8 @@
 # Design Partitioning Analysis
 
-## 1. Partitioning Strategy
+## 1. Partition Strategy
 
-The YOLOv5 Nano model was compiled for the DPUCZDX8G (B4096) architecture.
+The YOLOv5 Nano model was compiled for DPUCZDX8G (B4096).
 
 Using:
 
@@ -12,60 +12,55 @@ The model is partitioned into 5 subgraphs.
 
 ---
 
-## 2. Subgraph Mapping
+## 2. Subgraph Allocation
 
-### Subgraph 1 – DPU (PL)
+### Subgraph 1 – Executed on DPU (PL)
 
-- Entire CNN backbone
+- CNN backbone
 - 4.49 Billion Operations
 - Input: 640×640
-- Outputs: Detection feature maps
-  - 20×20
-  - 40×40
-  - 80×80
+- Outputs: 3 detection feature maps (20×20, 40×40, 80×80)
 
-This subgraph contains all 2D convolutions and batch normalization layers.
+This contains all convolution and batch normalization layers.
 
 ---
 
-### Subgraphs 2–4 – CPU (PS)
+### Subgraphs 2–4 – Executed on ARM CPU (PS)
 
 - Detection head scaling
-- Bounding box coordinate decoding
-- Class probability adjustments
+- Bounding box decoding
+- Class score adjustments
 
 ---
 
-### User-Level CPU Execution
+### Final Stage – CPU
 
-- Initial quantization stub
-- Final Non-Maximum Suppression (NMS)
+- Non-Maximum Suppression (NMS)
+- Confidence thresholding
 
 ---
 
 ## 3. Design Rationale
 
-Why CNN backbone on DPU?
+Why backbone on FPGA?
 
 - High arithmetic intensity
-- Parallel convolution operations
-- Optimal DSP and BRAM utilization
+- Parallelizable convolution operations
+- Efficient DSP and BRAM utilization
 
 Why NMS on CPU?
 
-- Control-heavy logic
 - Irregular memory access
+- Control-dominant operations
 - Lower arithmetic density
 
 ---
 
-## 4. Partitioning Trade-Off
+## 4. Impact of Partitioning
 
-At 30 FPS (webcam-limited), CPU overhead is acceptable.
+At full pipeline level:
 
-At 500 FPS theoretical throughput, CPU-based NMS becomes a bottleneck.
+- CPU-only: 0.98 FPS
+- DPU-accelerated: ~24 FPS
 
-Future optimization:
-
-- C++ NMS implementation
-- Full hardware offloading of detection heads
+The DPU dramatically reduces convolution latency, enabling real-time inference.
