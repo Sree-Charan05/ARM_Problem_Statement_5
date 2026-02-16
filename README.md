@@ -23,4 +23,3 @@ The final implementation provides a clear distinction between raw hardware capab
 ·	Hardware Capacity (Peak): 500.46 FPS. This confirms that the FPGA can process a single frame in approximately 1.99 ms, leaving significant room for multi-camera streams.
 ·	Real-Time Constraint: While the hardware can run at 500 FPS, the live demonstration is typically synchronized to the webcam’s native frame rate (30 or 60 FPS), ensuring smooth, jitter-free video.
 ·	Efficiency: The DPU achieves this performance while consuming significantly less power than a high-end GPU, making it ideal for industrial or mobile robotics.
-
