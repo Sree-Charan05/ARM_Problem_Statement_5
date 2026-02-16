@@ -1,0 +1,36 @@
+YOLOv5 Nano – CPU vs PL Performance Results
+Platform: ZCU102
+Input Source: USB Webcam
+Input Resolution: 640x640
+Precision: INT8
+
+--------------------------------------------------
+CPU-ONLY IMPLEMENTATION (ARM Cortex-A53)
+--------------------------------------------------
+
+Measured FPS           : 0.98 FPS
+Approximate Latency    : ~1020 ms per frame
+Execution Domain       : Processing System (PS)
+CNN Backbone           : Executed in Software
+Post-Processing        : CPU (NMS)
+
+Observation:
+- Non-real-time performance.
+- High latency due to software convolution execution.
+
+--------------------------------------------------
+PL-ACCELERATED IMPLEMENTATION (DPU)
+--------------------------------------------------
+
+Measured FPS           : ~23.8–24 FPS
+Approximate Latency    : ~41 ms per frame
+Execution Domain       : Programmable Logic (PL)
+CNN Backbone           : Executed on DPU
+Post-Processing        : CPU (NMS)
+
+Observed Speedup:
+24 / 0.98 ≈ 24.5× faster than CPU-only implementation.
+
+Notes:
+- Application-level FPS limited by webcam frame rate and CPU-based post-processing.
+- Hardware benchmark peak is significantly higher (500.46 FPS).
