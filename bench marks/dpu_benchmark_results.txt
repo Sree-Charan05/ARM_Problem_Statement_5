@@ -1,0 +1,24 @@
+YOLOv5 Nano – DPU Benchmark Results
+Platform: ZCU102
+DPU: DPUCZDX8G (B4096 Configuration)
+Precision: INT8
+
+--------------------------------------------------
+RAW HARDWARE BENCHMARK (Isolated CNN Backbone)
+--------------------------------------------------
+
+Total Frames Processed : 30,029
+Benchmark Duration     : 60 seconds
+Peak Throughput        : 500.46 FPS
+Average DPU Latency    : 1.99 ms
+Operations per Frame   : 4.49 GOP
+
+Memory Footprint:
+Workspace (REG_1)      : 9.8 MB
+Constants (REG_0)      : 2.1 MB
+
+Notes:
+- This benchmark measures only Subgraph 1 (CNN backbone).
+- No webcam I/O.
+- No post-processing (NMS).
+- No visualization overhead.
