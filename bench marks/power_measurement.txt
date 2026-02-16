@@ -1,1 +1,31 @@
+YOLOv5 Nano – Power Measurement Report
+Platform: ZCU102
+Measurement Method: Onboard TI INA226 Sensors
+
+--------------------------------------------------
+POWER STATES
+--------------------------------------------------
+
+Idle Board Power              : 10.50 W
+Active Inference Power        : 14.22 W
+Dynamic DPU Power (Net)       : 3.72 W
+
+--------------------------------------------------
+ENERGY EFFICIENCY
+--------------------------------------------------
+
+Hardware Benchmark Throughput : 500.46 FPS
+Dynamic DPU Power             : 3.72 W
+
+Energy Efficiency Calculation:
+
+500.46 FPS / 3.72 W = 134.5 FPS/W
+
+--------------------------------------------------
+OBSERVATIONS
+--------------------------------------------------
+
+- DPU achieves high computational density with low incremental power.
+- Significant performance per watt improvement compared to CPU-only execution.
+- Suitable for edge AI and industrial deployment scenarios.
 
