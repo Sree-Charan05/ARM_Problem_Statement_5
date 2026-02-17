@@ -122,13 +122,15 @@ This partitioning balances computational efficiency and system flexibility.
 
 ## CPU Implementation (~0.98 FPS)
 
-![CPU Result](demo/screenshots/cpu_implementation.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4af78da4-1eea-44ec-95a7-66d32defa313" />
+
 
 ---
 
 ## PL Implementation (~24 FPS)
 
-![PL Result](demo/screenshots/pl_implementation.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7f850350-cf8e-45fc-bf91-94ff8b6a688a" />
+
 
 ---
 
