@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- Styles generated from theme -->
+    <link href="/api/internal/brand/theme/style-sheet?touch-point=SIGN_IN_PAGE&amp;v=135faf974f885678bc95d13ef1552b7e85853f731d706acd9f43fcdd8b85a3704c555b08dbd6b8a05cf850bd9db131e7" rel="stylesheet" type="text/css">
+    <!-- Favicon from theme -->
+    <link rel="shortcut icon" href="https://ok14static.oktacdn.com/bc/image/fileStoreRecord?id=fs065l617aXiHBjAi697" type="image/x-icon"/>
+
+    <title>amd - Sign In</title>
+    <!-- Core widget js and css -->
+<script type="text/javascript"
+        src="https://ok14static.oktacdn.com/assets/js/sdk/okta-signin-widget/6.9.0/js/okta-sign-in.min.js" integrity="sha384-BFrw4NBalWjwoOn/uD6y1dD+IAHVjFQglnHKS/UudPaBGU8ZJD5dJKlmZNcoDBPl" crossorigin="anonymous"></script>
+<link rel="stylesheet"
+      type="text/css"
+      href="https://ok14static.oktacdn.com/assets/js/sdk/okta-signin-widget/6.9.0/css/okta-sign-in.min.css"
+      integrity="sha384-brQYBaq0vlLS0S4eEzyGfMUi31NgblWA/jvwZY1mRnQP3qdquYvOZ8IVou2cZ3AD"
+      crossorigin="anonymous">
+
+<!-- Customizable css theme options. Link your own stylesheet or override styles inline. -->
+<link rel="stylesheet"
+      type="text/css" href="" integrity="" crossorigin="anonymous">
+
+<!-- styles for custom sign in -->
+<link rel="stylesheet" type="text/css" href="https://ok14static.oktacdn.com/assets/loginpage/css/custom-signin.a91af2abfd04662e499bd3e151150dbf.css" integrity="sha384-BhMidK4jYIQaVFKNVHUvbfdgrt4NVlnlTZMsOMWLdWkme3j1JcshKDNQiMssd7sN" crossorigin="anonymous">
+
+
+<script type="text/javascript" nonce="cLJzeJW9rQLDRtu2orDO9Q">
+    window.onerror = function (msg, _url, _lineNo, _colNo, error) {
+        if (window.console && window.console.error) {
+            if (error) {
+                console.error(error);
+            } else {
+                console.error(msg);
+            }
+        }
+
+        // Return true to suppress "Script Error" alerts in IE
+        return true;
+    };
+</script>
+
+
+    <style nonce="cLJzeJW9rQLDRtu2orDO9Q">
+        #login-bg-image-id {
+            background-image: url('https://ok14static.oktacdn.com/fs/bco/7/fs065l67dk2Ie0iAR697')
+        }
+		#okta-sign-in .beacon-container {    
+    		display: none; 
+		}
+    </style>
+</head>
+<body>
+	<div class="amd-bs5">
+		<div id="login-bg-image-id" class="login-bg-image tb--background"></div>
+		<div id="okta-login-container"></div>
+	</div>
+
+    <!--
+        "OktaUtil" defines a global OktaUtil object
+        that contains methods used to complete the Okta login flow.
+     -->
+    
+<div id="okta-sign-in" class="auth-container main-container unsupported-message-container" style="display:none">
+    <div id="unsupported-cookie" class="unsupported-message" style="display:none">
+        <h2 class="o-form-head">Cookies are required</h2>
+        <p>Cookies are disabled on your browser. Please enable Cookies and refresh this page.</p>
+        <a class="button button-primary" target="_blank" href=".">
+            Refresh
+        </a>
+    </div>
+</div>
+<div id="inactive-tab-main-div" style="display:none;">
+    <div class="inactive-tab-container">
+        <div class="inactive-tab-header">
+            <img src="https://ok14static.oktacdn.com/fs/bco/1/fs065l6178OM3jRV7697" alt="amd" class="report-org-logo">
+            <div class="divider"></div>
+        </div>
+        <div class="inactive-tab-content">
+            <h2 class="inactive-tab-content-title">The page has timed out</h2>
+            <p class="inactive-tab-details">If this page does not reload automatically, please refresh your browser.</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" nonce="cLJzeJW9rQLDRtu2orDO9Q">
+  var signInSuccessCallBackFunction;
+  var oktaData = {"redirectUri":"\x2Fapp\x2Famd_accountamdcom_1\x2Fexk559qg7f4aW4yim697\x2Fsso\x2Fsaml","isMobileSso":false,"orgSyncToAccountChooserEnabled":true,"fromUri":"","isMobileClientLogin":false,"requestContext":{"app":{"type":"object","value":{"name":"amd_accountamdcom_1","label":"account.amd.com","id":"0oa559qg7gdEEqRZ3697"}},"authentication":{"request":{},"protocol":{},"client":{"name":"amd_accountamdcom_1","label":"account.amd.com","id":"0oa559qg7gdEEqRZ3697"},"type":"object","value":{"request":{},"protocol":{}}},"target":{"clientId":"0oa559qg7gdEEqRZ3697","name":"amd_accountamdcom_1","label":"account.amd.com"}},"countryIso":"IN","inactiveTab":{"elementId":"inactive\x2Dtab\x2Dmain\x2Ddiv","avoidPageRefresh":true,"enabled":true},"signIn":{"logoText":"amd\x20logo","brandName":"amd","language":"en","consent":{"cancel":function(){window.location.href='https\x3A\x2F\x2Flogin.amd.com\x2Flogin\x2Fstep\x2Dup\x2Fredirect\x3FstateToken\x3D02.id.MPdVzbGptWqqD0U4a_ZidyBCfZ76HqKxxrfGgJLE';}},"i18n":{"en":{"mfa.challenge.password.placeholder":"Password","help":"Help","password.forgot.email.or.username.tooltip":"Email\x20or\x20Username","needhelp":"Need\x20help\x20signing\x20in\x3F","primaryauth.username.placeholder":"Email\x20Address","password.forgot.email.or.username.placeholder":"Email\x20or\x20Username","account.unlock.email.or.username.tooltip":"Email\x20or\x20Username","unlockaccount":"Unlock\x20account\x3F","account.unlock.email.or.username.placeholder":"Email\x20or\x20Username","primaryauth.password.placeholder":"Password","primaryauth.title":"AMD\x20Portal\x20Sign\x20In","forgotpassword":"Forgot\x20password\x3F"}},"features":{"isBotProtectionEnabled":false,"hideSignOutLinkInMFA":false,"emailRecovery":true,"deviceFingerprinting":true,"showIdentifier":true,"consent":true,"useDeviceFingerprintForSecurityImage":true,"customExpiredPassword":true,"router":true,"showPasswordToggleOnSignInPage":true,"securityImage":true,"autoPush":true,"smsRecovery":false,"idpDiscovery":false,"selfServiceUnlock":false,"webauthn":true,"passwordlessAuth":true,"showPasswordRequirementsAsHtmlList":true,"registration":false,"rememberMe":false,"callRecovery":false,"multiOptionalFactorEnroll":true},"baseUrl":"https\x3A\x2F\x2Flogin.amd.com","assets":{"baseUrl":"https\x3A\x2F\x2Fok14static.oktacdn.com\x2Fassets\x2Fjs\x2Fsdk\x2Fokta\x2Dsignin\x2Dwidget\x2F6.9.0"},"customButtons":[],"idpDiscovery":{"requestContext":""},"logo":"https\x3A\x2F\x2Fok14static.oktacdn.com\x2Ffs\x2Fbco\x2F1\x2Ffs065l6178OM3jRV7697","stateToken":"02.id.MPdVzbGptWqqD0U4a_ZidyBCfZ76HqKxxrfGgJLE","helpLinks":{"help":"","forgotPassword":"","unlock":"","custom":[]},"piv":{}},"accountChooserDiscoveryUrl":"https\x3A\x2F\x2Flogin.okta.com\x2Fdiscovery\x2Fiframe.html"};
+
+  var runLoginPage = function(fn) {
+    var mainScript = document.createElement('script');
+    mainScript.src = "https://ok14static.oktacdn.com/assets/js/mvc/loginpage/initLoginPage.pack.f45aba2fcd86049fdc0a4446a0b4aa60.js";
+    mainScript.integrity = "sha384-Ti1AVzmYlM/NMC9etUiz87VUWhwg+Bo9yxzyhSC6H+BcvWDdE/RfZIEFxIsvkfcf";
+    mainScript.crossOrigin = "anonymous";
+    document.getElementsByTagName('head')[0].appendChild(mainScript);
+    fn && mainScript.addEventListener('load', function () { setTimeout(fn, 1) });
+  };
+
+  var OktaUtil = {
+    _addClass: function(el, className) {
+      if(el) {
+        var elementClasses = el.className.split(" ");
+        if (elementClasses.indexOf(className) == -1) {
+          el.className += " " + className;
+        }
+      }
+    },
+
+    _removeElement: function(el) {
+      if(el) {
+        el.parentNode.removeChild(el);
+      }
+    },
+
+    _hideElement: function(el) {
+      if(el) {
+        el.style.display = 'none';
+      }
+    },
+
+    _isDocumentVisible: function() {
+      return document.visibilityState === 'visible';
+    },
+
+    addLoginContainerClass: function () {
+      this._addClass(document.getElementById('okta-login-container'), 'login-container');
+    },
+
+    showUnsupportedCookieWarning: function () {
+      document.getElementById('okta-sign-in').removeAttribute('style');
+      document.getElementById('unsupported-cookie').removeAttribute('style');
+    },
+
+    removeUnsupportedCookieWarning: function () {
+      this._removeElement(document.getElementById('okta-sign-in'));
+    },
+
+    hideOktaLoginContainer: function () {
+      this._hideElement(document.getElementById('okta-login-container'));
+    },
+
+    isChromeOs:  function () {
+      return /\bCrOS\b/.test(navigator.userAgent);
+    },
+
+    addChromeOSScript: function() {
+      var chromeOSScript = document.createElement('script');
+      chromeOSScript.src = "/js/google/users-1.0.js";
+      document.getElementsByTagName('head')[0].appendChild(chromeOSScript);
+    },
+
+    getSignInWidgetConfig: function () {
+        if (oktaData.inactiveTab && oktaData.inactiveTab.enabled && !this._isDocumentVisible() && !oktaData.inactiveTab.avoidPageRefresh) {
+            // Show a loading state and wait for the visibility event
+            this.hideOktaLoginContainer();
+            // remove stateToken so SIW does not attempt a login flow
+            oktaData.signIn.stateToken = undefined;
+        }
+        return oktaData.signIn;
+    },
+
+    completeLogin: function (res) {
+      signInSuccessCallBackFunction(res);
+    },
+
+    getRequestContext: function () {
+      return oktaData.requestContext;
+    },
+
+    setRedirectUri: function (uri) {
+      oktaData.redirectUri = uri;
+    },
+
+    init: function () {
+      if (!navigator.cookieEnabled) {
+        this.showUnsupportedCookieWarning();
+        this.hideOktaLoginContainer();
+      } else {
+        this.removeUnsupportedCookieWarning();
+
+        if (oktaData.inactiveTab && oktaData.inactiveTab.enabled && !this._isDocumentVisible()) {
+          try {
+            oktaData.inactiveTab.renderFnBackup = OktaSignIn.prototype.renderEl;
+          } catch (err) {
+            // no op - graceful handling OktaSignIn undefined case
+          }
+
+          // pause render sign-in widget when browser tab is inactive
+          if (!oktaData.inactiveTab.renderFnBackup) {
+            // for older SIW, renderFnBackup is undefined, fallback to full page reload
+            oktaData.inactiveTab.fallbackFullPageReload = true;
+            // Show a loading state and wait for the visibility event
+            this.hideOktaLoginContainer();
+            // remove stateToken so SIW does not attempt a login flow
+            oktaData.signIn.stateToken = undefined;
+          } else {
+            // for newer SIW, override renderEl function so SIW does not attempt a login flow
+            OktaSignIn.prototype.renderEl = function () {
+              oktaData.inactiveTab.renderArgsBackup = arguments;
+              oktaData.inactiveTab.signInInstance = this;
+              try {
+                return new Promise(function (resolve, reject) {
+                  oktaData.inactiveTab.renderResolve = resolve;
+                  oktaData.inactiveTab.renderReject = reject;
+                });
+              } catch (err) {
+                // return nothing if promise is not supported, since promise chaining won't work anyway
+              }
+            }
+          }
+
+          // event handler to resume render sign-in widget
+          document.addEventListener('visibilitychange', function checkVisibilityAndCallSuccess() {
+            if (document.visibilityState === 'visible') {
+              try {
+                document.removeEventListener('visibilitychange', checkVisibilityAndCallSuccess);
+                const inactiveTabDiv = document.getElementById(oktaData.inactiveTab.elementId);
+                inactiveTabDiv.style.display = 'none';
+
+                // resume render sign-in widget
+                if (oktaData.inactiveTab.renderFnBackup && oktaData.inactiveTab.renderArgsBackup) {
+                  OktaSignIn.prototype.renderEl = oktaData.inactiveTab.renderFnBackup;
+                  var result = oktaData.inactiveTab.signInInstance.renderEl.apply(oktaData.inactiveTab.signInInstance, oktaData.inactiveTab.renderArgsBackup);
+                  if (result && result.then) {
+                    result.then(oktaData.inactiveTab.renderResolve, oktaData.inactiveTab.renderReject);
+                  }
+                }
+              } catch (err) {
+                oktaData.inactiveTab.fallbackFullPageReload = true;
+              }
+              if (oktaData.inactiveTab.fallbackFullPageReload) {
+                location.reload();
+              }
+            }
+          });
+        }
+
+        // add class if app login banner is present
+        if (oktaData.isAppBannerVisible) {
+          this.addLoginContainerClass();
+        }
+
+        oktaData.isCustomSignIn = true;
+        oktaData.hasChromeOSFeature = this.isChromeOs();
+        if (oktaData.hasChromeOSFeature) {
+          this.addChromeOSScript();
+        }
+        runLoginPage(function () {
+          var res = OktaLogin.initLoginPage(oktaData);
+          oktaData.signIn = res.signIn;
+          signInSuccessCallBackFunction = res.signInSuccessCallbackFn;
+
+        });
+      }
+    }
+  };
+  OktaUtil.init();
+  //# sourceURL=OktaUtil.js
+</script>
+
+
+	<style>
+         body {
+			font-family: 'Noto Sans', arial, sans-serif !important;
+            font-size: 1rem;
+            line-height: 1.5rem;
+			}
+			.apploginbanner-container {
+               display: none;
+			}
+			#okta-login-container.login-container {
+               margin-top: 0px;
+			}
+			.amd-bs5 {
+               color: #000000;
+			}
+			.amd-bs5 .login-bg-image {
+               background-color: #f1f1f2;
+			}
+			@media only screen and (max-width: 600px) {
+				.amd-bs5 .login-bg-image {
+                   background-color: #f1f1f2 !important;
+				}
+			}
+           .amd-bs5 #okta-sign-in {
+               font-family: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container {
+               font-family: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .auth-header {
+               padding: 2.265rem;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .auth-content {
+               padding-top: 0;
+               padding-bottom: 2.265rem;
+               padding-left: 2.265rem;
+               padding-right: 2.265rem;
+			}
+			.amd-bs5 #okta-sign-in.auth-container.main-container {
+               background-color: #f1f1f2;
+               border-color: #f1f1f2;
+               color: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .okta-sign-in-header {
+               border-bottom-color: #f1f1f2;
+               color: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container h2, .amd-bs5 #okta-sign-in.auth-container h3 {
+               color: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container h2 {
+               font-size: 2.125rem;
+               line-height: 3.125rem;
+			}
+			.amd-bs5 #okta-sign-in.auth-container h3 {
+               font-size: 1.75rem;
+               line-height: 2.625rem;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .okta-form-label {
+               color: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .o-form-fieldset {
+               font-size: 0.75rem;
+               line-height: 1.125rem;
+			}
+           .amd-bs5 #okta-sign-in.auth-container .button-primary {
+               background: #ffffff !important;
+               border-width: 2px;
+               border-color: #000000 !important;
+               color: #000000 !important;
+               border-style: solid;
+               margin-bottom: 2.265rem;
+               margin-top: 0;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .button-primary:hover {
+               background: #000000 !important;
+               color: #ffffff !important;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .button-secondary {
+               background: #000000 !important;
+               border-width: 2px;
+               border-color: #000000 !important;
+               color: #ffffff !important;
+               border-style: solid;
+               margin-bottom: 2.265rem;
+               margin-top: 0;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .button-secondary:hover {
+               background: #ffffff !important;
+               color: #000000 !important;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .primary-auth-container {
+               display: block;
+               text-align: center;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .button-link {
+               background: none;
+               border: none;
+               padding: 0;
+               color: #0077cc;
+               text-decoration: none;
+               cursor: pointer;
+               display: inline-block;
+               margin: 0;
+               width: auto;
+               height: auto;
+               line-height: inherit;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .button-link:hover {
+               text-decoration: underline;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .footer-text {
+               text-align: center;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .footer-text ul li {
+               display: inline-block;
+               padding-left: 1rem;
+               padding-right: 1rem;
+			}
+			.amd-bs5 #okta-sign-in.auth-container .primary-auth-container {
+               padding-top: 1.625rem;
+               padding-bottom: 2.265rem;
+			}
+			.amd-bs5 #okta-sign-in .o-form-head {
+               margin: 0;
+			}
+			.amd-bs5 #okta-sign-in .o-form-theme {
+               padding-bottom: 0;
+			}
+			.amd-bs5 #okta-sign-in .o-form-fieldset {
+               margin-top: 1.625rem;
+               margin-bottom: 0 !important;
+			}
+			.amd-bs5 #okta-sign-in .o-form-button-bar {
+               padding-top: 2.265rem;
+               padding-bottom: 0;
+			}
+			.amd-bs5 #okta-sign-in .o-form-explain.o-form-input-error:before, .amd-bs5 #okta-sign-in .error-16-red:before, .amd-bs5 #okta-sign-in .error-16-small:before, .amd-bs5 #okta-sign-in .help-wrap .infobox.infobox-error:before, .amd-bs5 #okta-sign-in .infobox-error:before, .amd-bs5 #okta-sign-in .infobox.infobox-subtle.infobox-error:before {
+               color: #ed1c24;
+			}
+           .amd-bs5 #okta-sign-in .o-form-error-container {
+               color: #000000;
+			}
+           .amd-bs5 #okta-sign-in .auth-divider {
+               display: none;
+			}
+			.amd-bs5 #okta-sign-in a {
+               color: #0070c6;
+               text-decoration: none;
+			}
+			.amd-bs5 #okta-sign-in a:hover {
+               text-decoration: underline;
+			}
+
+			.amd-bs5 #okta-sign-in .custom-buttons .separation-line span, #okta-sign-in .sign-in-with-device-option .separation-line span, #okta-sign-in .sign-in-with-idp .separation-line span, #okta-sign-in .sign-in-with-webauthn-option .separation-line span {
+				background: #f1f1f2;
+				padding: 0 15px;
+				font-size: 13px;  	
+				color: #000000;		
+			}
+
+	</style>
+    <script type="text/javascript" nonce="cLJzeJW9rQLDRtu2orDO9Q">
+
+    	// change this betwen envs.
+			function getEnv() {
+				//return 'uat';
+				// for prod:
+				return ''; 
+			}
+
+			function getUserStatusUrl() {	
+				return "https://" + getEnv() + "www.amd.com/bin/public/checkuserstatus?username=";
+			}
+
+			function getCustomTarget() {	
+                var queryString = window.location.search;			    
+			    var urlParams = new URLSearchParams(queryString);			   
+			    console.log('RelayState URL parameter found is: ' + urlParams.get('RelayState'));
+                var amdRelayState = urlParams.get('RelayState');
+              
+				const domainMap = new Map([
+['0oa542a22tJLvl7YY697', 'https://amd.seismic.com'],
+['0oa540jwxz5W5QmSQ697', 'https://amds4hanapayment.authentication.us10.hana.ondemand.com'],
+['0oa53iionfTMNZ6yO697', 'https://support.xilinx.com'],
+['0oa53iqhyrV7e05vQ697', 'https://consumerreturns.amd.com'],
+['0oa53kvf42koHO5MD697', 'https://corpreturns.amd.com'],
+['0oa53kvnyhR4EU2Pu697', 'https://partnerhub.amd.com'],
+['0oa53l4lm2cdHlc3v697', 'https://partner.xilinx.com'],
+['0oa53l7t9arG1FsQB697', 'https://distiportal.amd.com'],
+['0oa54ipdg48jN2LBT697', 'https://docs.xilinx.com'],
+['0oa54irrilam3Y9II697', 'https://gitlab.com'],
+['0oa54md8uxPQN4KhM697', 'https://login.amd.com/app/amd_netexamlmsportal_1/exk54md8uwFv4hpIE697/sso/saml'],
+['0oa54mad0d7btn67f697', 'https://login.amd.com/app/amd_netexamtrainingportal_1/exk54mad0cKH54rKG697/sso/saml'],
+['0oa5es3uau4hGs8Vo697', 'https://library.amd.com'],
+['0oaayp6o8xvLauoQn697', 'https://login.amd.com/app/amd_quest_1/exkayp6o8wwaQnTKm697/sso/saml'],
+['0oaii5lpn7InIoqz1697', 'https://login.amd.com/app/amd_adaptivesalesforcecommunityportalprod_1/exkii5lpn6lmYOU8W697/sso/saml'],
+['0oaldrgpba5CybP5u697', 'https://asksupport.amd.com'],
+['0oar07tkf36ULgWFA697', 'https://login.amd.com/app/amd_pcforumsalesforce_1/exkr07tkf22b6UNI1697/sso/saml'],
+['0oas2om470iqGujcg697', 'https://amplify.amd.com/'],
+['0oax7n28hsIJL6wYG697', 'https://login.amd.com/app/amd_questnxg_1/exkx7n28hrhD56Voj697/sso/saml'],
+['0oawteodhbjEsDU6j697', 'https://login.amd.com/app/amd_salesforcesmartnicdpusupport_1/exkwteodhaowMCoqx697/sso/saml'],
+['0oazwermgnWxcduj1697', 'https://login.amd.com/app/amd_c3aipricingoptimization_1/exkzwermgm2CQmUeW697/sso/saml'],
+['0oazwkrtgcjFVHi7G697', 'https://login.amd.com/app/amd_c3aidemandplanning_1/exkzwkrtgbVZwzim2697/sso/saml'],
+['0oawplvdkwyjY744t697', 'https://devcommunity.amd.com/login'],
+]);
+
+
+			if (domainMap.has(getClientId())) {
+					if (getClientId()==='0oa7esa8e1W4kKSMp1d7' || getClientId()==='0oazwkrtgcjFVHi7G697' || getClientId()==='0oazwermgnWxcduj1697' || getClientId()==='0oa7o2ogwblC4mC871d7' || getClientId()==='0oaayp6o8xvLauoQn697' || getClientId()==='0oax7n28hsIJL6wYG697' || getClientId()==='0oaii5lpn7InIoqz1697'||  getClientId()==='0oawteodhbjEsDU6j697' ||  getClientId()==='0oawplvdkwyjY744t697' || getClientId()==='0oaldrgpba5CybP5u697'|| getClientId()==='0oar07tkf36ULgWFA697' || getClientId()==='0oas2om470iqGujcg697'){
+						amdRelayState = domainMap.get(getClientId()) + '?RelayState='+ amdRelayState;  
+					} else {
+						amdRelayState = domainMap.get(getClientId()) + amdRelayState;
+					}
+				}	
+			if (amdRelayState) {
+				console.log("returning custom target: " + amdRelayState);			
+				return "?custtarg=" + btoa(amdRelayState);
+			} else {
+				return "";
+			}
+
+		}
+
+			function getClientId() {
+        		if (!OktaUtil) return undefined;
+           		var requestContext = OktaUtil.getRequestContext();
+        		if (requestContext && requestContext.app && requestContext.app.value.id) {
+					//console.log('Application ID is ' + requestContext.app.value.id );
+          			return requestContext.app.value.id;
+        		}
+  			}
+
+			function getLanguage() {
+				if (!OktaUtil) { 
+					return 'en';
+				} else {
+					// Check that language Okts found is supported.				
+					const supportedLangs = new Set(["en", "de", "es", "fr", "ja", "ko", "zh-CN","zh-TW", "pt-BR"]);						// 								
+					if (supportedLangs.has(OktaUtil.getSignInWidgetConfig().language))  {
+						return OktaUtil.getSignInWidgetConfig().language;
+					} else {
+						return 'en';
+					}
+				}				
+			}
+			
+			function getLanguagePath() {
+				// Okta changes all Portuguese flavors to pt-BR but AEM uses pt		
+				const aemLangPathMap = new Map([
+						['en','en'],
+						['de','de'],												
+						['es','es'],
+						['fr','fr'],
+						['ja','ja'],
+						['ko','ko'],
+						['zh-CN', 'zh-cn'],
+						['zh-TW', 'zh-tw'],
+						['pt-BR','pt']
+						]);
+
+				if (aemLangPathMap.has( OktaUtil.getSignInWidgetConfig().language)) {
+					return aemLangPathMap.get( OktaUtil.getSignInWidgetConfig().language);
+				} else {
+					return 'en';
+				}
+			}
+			function getCreateAccountLinkPath() {
+                var queryString = window.location.search;              
+                var urlParams = new URLSearchParams(queryString);              
+                // console.log('RelayState URL parameter found is: ' + urlParams.get('RelayState'));
+                var amdRelayState = urlParams.get('RelayState');
+                if (amdRelayState && amdRelayState.includes('/member/ai-dev-program')) {
+                        return '/registration/ai-dev-program-sign-up-form.html';
+                    }
+                else {
+                        return '/registration/create-account.html';
+                	}
+           		}
+				
+
+
+			function getAMDDomainUrl() {
+				var domain = 'https://' + getEnv() + 'www.amd.com/' + getLanguagePath();				
+				return domain;
+			}
+			function getI18n(key ) {
+				// this must be called after render to get customlink text
+				return OktaUtil.getSignInWidgetConfig().i18n[OktaUtil.getSignInWidgetConfig().language][key];
+			}
+		
+        
+		var customConfig = {
+			language: getLanguage(),			
+			i18n: {
+					'en': {
+						'primaryauth.title':  'Sign-In ' + getEnv(),
+						'primaryauth.username.placeholder': 'E-mail Address',
+						'error.username.required': 'Please enter an E-mail address',	
+						'errors.E0000004': 'The E-mail Address and/or Password you entered is incorrect. Please try again.',					
+						'customButton.createAccount': 'Create Account',
+						'customLink.forgotPassword': 'Forgot / Reset Password?',
+						'customLink.privacy': 'Privacy',
+						'customLink.help': 'Help',					
+					 	'customLink.termsOfUse': 'Terms of Use',
+						'idx.error.user.not.assigned.to.app': ' '
+					},
+					'zh-CN': {
+						'primaryauth.title': '登入' + getEnv(),	
+						'primaryauth.username.placeholder': '电子邮件地址',						
+						'error.username.required': '请输入电子邮箱地址。',						
+						'errors.E0000004': '您输入的电子邮件地址和/或密码不正确。请重试。',
+						'customButton.createAccount': '创建密码',
+						'customLink.forgotPassword': '忘记/重设密码？',						
+						'customLink.privacy': '隐私权',
+                      	'customLink.help': '帮助',
+			            'customLink.termsOfUse': '使用条款',
+						'idx.error.user.not.assigned.to.app': ' '
+					},
+					'zh-TW': {
+						'primaryauth.title': '登入' + getEnv(),
+						'primaryauth.username.placeholder': '電子郵件地址',
+						'error.username.required': '請輸入電子郵箱地址。',						
+						'errors.E0000004': '您輸入的電子郵件地址和/或密碼不正確。請重試。',
+						'customButton.createAccount': '創建密碼',
+						'customLink.forgotPassword': '忘記/重設密碼？',						
+						'customLink.privacy': '隱私權',
+                      	'customLink.help': '幫助',
+			            'customLink.termsOfUse': '使用條款',
+						'idx.error.user.not.assigned.to.app': ' '
+					},
+					'ja': {
+						'primaryauth.title': 'サインイン' + getEnv(),
+						'primaryauth.username.placeholder': '電子メール アドレス',
+						'error.username.required': '電子メール アドレスを入力してください。',						
+						'errors.E0000004': '電子メールアドレスおよび/またはパスワードに誤りがあります。再度入力してください。',
+						'customButton.createAccount': 'アカウントの作成',
+						'customLink.forgotPassword': 'パスワードを忘れた/パスワードをリセットしますか。',						
+						'customLink.privacy': 'プライバシーポリシー',
+                		'customLink.help': 'ヘルプ',
+			            'customLink.termsOfUse': '利用規約',
+						'idx.error.user.not.assigned.to.app': ' '
+					},                  
+					'de': {
+						'primaryauth.title': 'Anmelden ' + getEnv(),
+						'primaryauth.username.placeholder': 'E-Mail-Adresse',
+						'error.username.required': 'Bitte geben Sie eine E-Mail-Adresse ein',						
+						'errors.E0000004': 'Die E-Mail-Adresse und/oder das Passwort, die Sie eingegeben haben ist/sind nicht richtig. Versuchen Sie es bitte erneut.',
+						'customButton.createAccount': 'Konto erstellen',
+						'customLink.forgotPassword': 'Passwort vergessen / zurücksetzen?',
+						'customLink.privacy': 'Datenschutzhinweis',
+                    	'customLink.help': 'Hilfe',
+						'customLink.termsOfUse': 'Nutzungsbestimmungen',
+						'idx.error.user.not.assigned.to.app': ' '
+					},                  
+					'es': {
+						'primaryauth.title': 'Inicio de sesión ' + getEnv(),
+						'primaryauth.username.placeholder': 'Dirección de correo electrónico',
+						'error.username.required': 'Ingresa una dirección de correo electrónico',						
+						'errors.E0000004': 'La dirección de correo electrónico o contraseña que ingresaste no son correctas. Inténtalo nuevamente.',
+						'customButton.createAccount': 'Crea una cuenta',
+						'customLink.forgotPassword': '¿Olvidaste / estableciste tu contraseña?',						
+						'customLink.privacy': 'Política de Privacidad',
+			         	'customLink.help': 'Ayuda',
+                      	'customLink.termsOfUse': 'Términos de uso',
+						'idx.error.user.not.assigned.to.app': ' '						
+					},                  
+					'fr': {
+						'primaryauth.title': 'Se connecter ' + getEnv(),
+						'primaryauth.username.placeholder': 'Adresse e-mail',
+						'error.username.required': 'Veuillez saisir une adresse e-mail',					
+						'errors.E0000004': 'L’adresse e-mail et/ou le mot de passe que vous avez saisi est incorrect. Veuillez réessayer. ',
+						'customButton.createAccount': 'Créer un compte',
+						'customLink.forgotPassword': 'Mot de passe oublié / Réinitialiser ?',						
+						'customLink.privacy': 'Confidentialité',
+			            'customLink.help': 'Assistance',
+                      	'customLink.termsOfUse': 'Conditions d\'utilisation',
+						'idx.error.user.not.assigned.to.app': ' '
+					},                  
+					'ko': {
+						'primaryauth.title': '로그인 ' + getEnv(),
+						'primaryauth.username.placeholder': '이메일 주소',
+						'error.username.required': '이메일 주소를 입력하십시오',						
+						'errors.E0000004': '입력하신 이메일 주소 및/또는 비밀번호가 맞지 않습니다. 다시 시도해 주십시오.',
+						'customButton.createAccount': '계정 만들기',
+						'customLink.forgotPassword': '비밀번호를 잊으셨나요/초기화하시나요?',						
+						'customLink.privacy': '개인정보보호정책',
+	        		   	'customLink.help': '도움',
+                      	'customLink.termsOfUse': '이용약관',
+						'idx.error.user.not.assigned.to.app': ' '
+					},                  
+					'pt-BR': {
+						'primaryauth.title': 'Fazer login ' + getEnv(),
+						'primaryauth.username.placeholder': 'Endereço de e-mail',
+						'error.username.required': 'Insira um endereço de e-mail',						
+						'errors.E0000004': 'O endereço de e-mail e/ou senha que você digitou estão incorretos. Tente novamente.',
+						'customButton.createAccount': 'Criar conta',
+						'customLink.forgotPassword': 'Esqueceu / redefinir senha?',						
+						'customLink.privacy': 'Privacidade',
+			           	'customLink.help': 'Ajuda',
+                      	'customLink.termsOfUse': 'Termos de uso',
+						'idx.error.user.not.assigned.to.app': ' '
+					}
+				},
+				customButtons: [{
+						i18nKey: 'customButton.createAccount',
+						className: 'button-secondary',
+						click: function () {
+							window.location.href = getAMDDomainUrl() + getCreateAccountLinkPath() + getCustomTarget();
+						}
+					},
+					{
+						i18nKey: 'customLink.forgotPassword',
+						className: 'button-link',
+						click: function () {
+							window.location.href = getAMDDomainUrl() + '/registration/reset-password.html' + getCustomTarget();
+						}
+					}					
+				],
+		}
+
+    	var defaultConfig = OktaUtil.getSignInWidgetConfig();
+		let config = Object.assign(defaultConfig, customConfig);	
+					
+        // Render the Okta Sign-In Widget
+        var oktaSignIn = new OktaSignIn(config);		
+        oktaSignIn.renderEl({ el: '#okta-login-container' },
+            OktaUtil.completeLogin,
+            function(error) {
+               // Logs errors that occur when configuring the widget.            
+                console.log(error);               
+            }
+        );
+		
+	
+
+		oktaSignIn.on('afterRender', function (data) {
+				document.querySelector("#okta-sign-in > div.auth-content > div.auth-content-inner > div > div.siw-main-footer").remove();
+				var authContentFooter = document.getElementById("okta-login-container").getElementsByClassName("auth-content")[0];
+				var isFooter = document.getElementById("okta-login-container").getElementsByClassName("footer-text")[0];
+				if (!isFooter) {
+					var footerText = getFooterText();
+					var footerDiv = document.createElement('div');
+					footerDiv.innerHTML = footerText;
+					authContentFooter.appendChild(footerDiv.firstChild);
+				}
+		});
+		
+		
+		
+  		oktaSignIn.on('afterError', function (context, error) {
+        	//console.log(error);
+			if (context.formName==='identify') {
+				var xhr = new XMLHttpRequest();
+				var domainURL = getAMDDomainUrl();
+				var user = document.getElementsByName("identifier")[0].value;							
+				if (user.endsWith('@amd.com') && user.substring( 0, user.length - 4).includes(".")) {
+					alert("Internal AMD users, use username@amd.com for sign in");
+				} else {
+					if ("withCredentials" in xhr) {
+						var user = document.getElementsByName("identifier")[0].value;
+						xhr.open("GET", getUserStatusUrl() + user);
+						xhr.withCredentials = true;
+						xhr.setRequestHeader("Accept", 'application/json');
+						xhr.setRequestHeader("Content-Type", 'application/json');
+						xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
+						xhr.send();
+						xhr.onerror = function () {
+							console.log('An error occurred when connecting to the server to do user status check.');							
+						}
+						xhr.onload = function () {						
+							if (JSON.parse(this.responseText).status == "PROVISIONED") {
+								window.location.href = domainURL + "/registration/resend-activation-email.html" + getCustomTarget();
+							} 
+						}						
+					} else {
+						console.log("CORS is not supported for this browser.");						
+					}
+				}					
+			}
+		});
+		
+		
+		function getFooterText() {
+				var text = '<div class="footer-text"><ul><li><a href="'+getAMDDomainUrl()+'/registration/faq.html">'+
+				getI18n('customLink.help')+'</a></li><li><a href="'+getAMDDomainUrl()+'/legal/privacy.html">'
+				+getI18n('customLink.termsOfUse')+'</a></li><li><a href="'+getAMDDomainUrl()+'/legal/copyright.html">'
+				+getI18n('customLink.privacy')+'</a></li></ul></div>';
+				return text;
+			}
+     
+    </script>
+</body>
+</html>
