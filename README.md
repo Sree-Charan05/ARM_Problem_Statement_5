@@ -12,7 +12,9 @@ This architecture enables real-time object detection with significant accelerati
 
 # 🏗 System Architecture
 
-![System Architecture](docs/images/system_architecture.png)
+https://github.com/Sree-Charan05/ARM_Problem_Statement_5/blob/main/docs/Images/system_architecture.jpg
+<img width="1381" height="804" alt="image" src="https://github.com/user-attachments/assets/97de8dbf-3a69-4c2f-97dd-a47dee5595cc" />
+
 
 ## Architecture Description
 
