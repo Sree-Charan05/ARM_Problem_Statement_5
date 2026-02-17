@@ -1,25 +1,138 @@
-Detection Model: YOLOv5 Nano 
+# 🚀 YOLOv5 Nano FPGA Acceleration on ZCU102
 
-The core of this project is the YOLOv5 Nano model, the most compact and efficient version of the YOLO (You Only Look Once) family. It is a single-stage object detector designed specifically for edge devices with limited resources. In this implementation, the model is trained on the COCO (Common Objects in Context) dataset, enabling it to identify and localize 80 distinct classes, including:
-·	Vehicles: Cars, trucks, buses, motorcycles, and bicycles.
-·	People: Pedestrians and crowds in various environments.
-·	Animals: Common species such as dogs, cats, birds, and horses.
-·	Everyday Items: Cell phones, laptops, chairs, cups, and backpacks.
+## 📌 Project Overview
 
-Hardware Acceleration: The DPU Advantage
+This project demonstrates a hardware/software co-design implementation of YOLOv5 Nano object detection on the AMD-Xilinx ZCU102 platform.
 
-Running a complex neural network like YOLOv5 on a standard embedded CPU (ARM Cortex-A53) often results in high latency, typically delivering only 1–2 frames per second (FPS). This project solves the bottleneck by offloading the computational workload to the DPU (Deep Learning Processor Unit) inside the ZCU102’s FPGA fabric. The DPU acts as a dedicated engine for tensor operations, executing billions of mathematical calculations in parallel. This hardware-software co-design allows the system to reach "Real-Time+" speeds, where the hardware capacity far exceeds the standard requirements of human-eye perception.
-System Execution: Real-Time Pipeline
+The convolution backbone of the neural network is offloaded to the DPU (Deep Learning Processor Unit) instantiated in the FPGA fabric (Programmable Logic), while input/output operations and system control run on the ARM Cortex-A53 (Processing System).
 
-The system operates as a continuous real-time pipeline, moving data from the lens to the screen in milliseconds:
-1.	Image Acquisition: A frame is captured from a USB webcam.
-2.	Preprocessing: The CPU resizes the image to $640 \times 640$ and prepares the data.
-3.	Inference: The FPGA-based DPU executes the heavy convolutional math.
-4.	Post-processing: The CPU calculates final bounding box coordinates and filters out overlapping detections (NMS).
-5.	Visualization: The results are rendered as a live video feed with overlaid bounding boxes and confidence scores.
+This architecture enables real-time object detection with significant acceleration compared to CPU-only execution.
 
-Primary Performance Outcomes
-The final implementation provides a clear distinction between raw hardware capability and end-to-end application speed:
-·	Hardware Capacity (Peak): 500.46 FPS. This confirms that the FPGA can process a single frame in approximately 1.99 ms, leaving significant room for multi-camera streams.
-·	Real-Time Constraint: While the hardware can run at 500 FPS, the live demonstration is typically synchronized to the webcam’s native frame rate (30 or 60 FPS), ensuring smooth, jitter-free video.
-·	Efficiency: The DPU achieves this performance while consuming significantly less power than a high-end GPU, making it ideal for industrial or mobile robotics.
+---
+
+# 🏗 System Architecture
+
+![System Architecture](docs/images/system_architecture.png)
+
+## Architecture Description
+
+### 🔹 Processing System (PS) – ARM Cortex-A53
+
+- Quad-core ARM Cortex-A53 @ 1.2 GHz
+- Linux OS
+- USB Webcam capture (V4L2)
+- Image preprocessing (resize to 640×640)
+- VART runtime invocation
+- Detection head scaling
+- Non-Maximum Suppression (NMS)
+- Visualization and display output
+
+All input and output operations are handled in the PS.
+
+---
+
+### 🔹 Programmable Logic (PL) – FPGA Fabric
+
+- DPUCZDX8G (B4096 configuration)
+- Executes compiled INT8 `.xmodel`
+- Accelerates CNN backbone (4.49 GOP per frame)
+
+The PL performs only computation.  
+All control and I/O remain in the PS.
+
+---
+
+# 📊 Performance Results
+
+## 🔹 End-to-End Application Performance (Measured)
+
+| Implementation | FPS | Approximate Latency |
+|---------------|------|--------------------|
+| CPU Only (ARM A53) | **0.98 FPS** | ~1020 ms |
+| PL Accelerated (DPU) | **~24 FPS** | ~41 ms |
+
+### 🔥 Real-World Speedup
+
+24 / 0.98 ≈ **24.5× faster**
+
+Hardware acceleration transforms the system from non-real-time to real-time performance.
+
+---
+
+## 🔹 Raw DPU Hardware Benchmark (Isolated Backbone)
+
+Measured using DPU benchmark utility:
+
+| Metric | Value |
+|--------|-------|
+| Peak Throughput | **500.46 FPS** |
+| Average DPU Latency | **1.99 ms** |
+| Operations per Frame | 4.49 GOP |
+| Energy Efficiency | 134.5 FPS/W |
+
+> Note: 500 FPS reflects pure CNN backbone execution without webcam and post-processing overhead.
+
+---
+
+# ⚡ Power Analysis
+
+Measured using onboard INA226 sensors.
+
+| State | Power |
+|-------|--------|
+| Idle Board Power | 10.50 W |
+| Active Inference Power | 14.22 W |
+| Dynamic DPU Power | 3.72 W |
+
+Energy Efficiency:
+
+500.46 FPS / 3.72 W = **134.5 FPS/W**
+
+This demonstrates strong suitability for edge AI deployment.
+
+---
+
+# 🧠 Model Details
+
+- Model: YOLOv5 Nano
+- Dataset: COCO (80 classes)
+- Input Resolution: 640 × 640
+- Precision: INT8 Quantized
+- Target DPU: DPUCZDX8G (B4096)
+- Operations per Frame: 4.49 Billion
+
+---
+
+# 🔄 Design Partitioning
+
+| Module | Execution Domain |
+|---------|----------------|
+| CNN Backbone | FPGA (DPU) |
+| Detection Head Scaling | ARM CPU |
+| Non-Maximum Suppression | ARM CPU |
+| Visualization | ARM CPU |
+
+This partitioning balances computational efficiency and system flexibility.
+
+---
+
+# 📸 Demo Results
+
+## CPU Implementation (~0.98 FPS)
+
+![CPU Result](demo/screenshots/cpu_implementation.png)
+
+---
+
+## PL Implementation (~24 FPS)
+
+![PL Result](demo/screenshots/pl_implementation.png)
+
+---
+
+# 🖥 How to Run
+
+## 1️⃣ Verify DPU Availability
+
+```bash
+xdputil query
